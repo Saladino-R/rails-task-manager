@@ -1,0 +1,22 @@
+<h1 class='title text-center p-4'>My tasks</h1>
+
+<div class="container p-4">
+  <div class="form-check">
+    <ul>
+      <% @tasks.each do |task| %>
+        <% if task.completed == true %>
+          <p><input class="form-check-input" type="checkbox" value="" id="flexCheckCheked" checked>
+          <label class="form-check-label" for="flexCheckCheked">
+          <%= link_to task.title, task_path(task) %>
+          </label></p>
+          <% else %>
+          <p><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+          <%= link_to task.title, task_path(task) %>
+          </label></p>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+    <%= link_to 'Add a task', new_task_path,  class:'btn btn-primary m-4'%>
+</div>
